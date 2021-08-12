@@ -1,6 +1,6 @@
 # Fetch Coding Challenge #
 
-Welcome to [Alan's code for the Fetch coding exercise!](https://alanrmendez.github.io/fetch-coding-challenge/) The web service is constructed as a minimalistic, streamlined, and intuitive service that performs the requested tasks: 
+Welcome to Alan's code for the Fetch coding exercise! [The web service] (https://alanrmendez.github.io/fetch-coding-challenge/)is constructed as a minimalistic, streamlined, and intuitive service that performs the requested tasks: 
 1. Adding transactions for a specific payer and date, 
 2. Spending points as permitted and returning a list for each call, and 
 3. returning all payer point balances. 

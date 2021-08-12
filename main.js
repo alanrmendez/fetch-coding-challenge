@@ -1,16 +1,12 @@
-/*
-//test function
-function testFunction() {
-    document.getElementById('confirmation').innerHTML = 'Success again!';
-}
-*/
 function resetConfirmation() {
     document.getElementById('transaction-confirmation').innerHTML = "";
 }
 
+
 function resetError() {
     document.getElementById("pointsErr").innerHTML = "";
 }
+
 
 //Transaction Object
 function Transaction(payer, points, timestamp) {
@@ -24,19 +20,6 @@ function Transaction(payer, points, timestamp) {
 var transactionList = [];
 var payerList = [];
 
-/*
-//Store data test function
-function storeData() {
-    if (typeof (Storage) !== "undefined") {
-        var inputName = document.getElementById("test-name");
-        sessionStorage.setItem("test-name", inputName.value);
-
-        document.getElementById("results").innerHTML = sessionStorage.getItem("test-name");
-    } else {
-        alert("Sorry, storage not supported.");
-    }
-}
-*/
 
 //addTransaction function --> add transactions for a specific payer and date, with points indicated
 function addTransaction() {
@@ -45,12 +28,8 @@ function addTransaction() {
         var points = document.getElementById("points").value;
         var timestamp = document.getElementById("timestamp").value;
 
-        //save input values to session storage 
-        //sessionStorage.setItem("payer", payer);
-        //sessionStorage.setItem("points", points.value);
-        //sessionStorage.setItem("timestamp", timestamp.value);
-
         //convert variable values to appropriate data types so that they can be passed to Transaction object
+        payer = payer.toUpperCase();
         points = parseInt(points);
         timestamp = new Date(timestamp + "Z");
 
@@ -72,7 +51,6 @@ function addTransaction() {
         alert("Sorry, storage not supported.");
         return 1;
     }
-
 }
 
 
@@ -84,6 +62,7 @@ function sumPoints() {
     }
     return sumPoints;
 }
+
 
 //Build Object that stores payer name and points spent
 function PayerListWithPointsSpent(payer, pointsSpent) {
@@ -121,7 +100,7 @@ function spendPoints() {
 
         while (numPoints > 0) {
             //for (var i = 0; i < sortedTransactions.length; i++) {
-            
+
             //if the number of points to spend is greater than the points in the oldest transaction
             if (numPoints >= sortedTransactions[0].points) {
                 numPoints = numPoints - sortedTransactions[0].points;
@@ -166,16 +145,14 @@ function spendPoints() {
 }
 
 
-
-
 //pointsBalance function --> Return all payer point balances
 function pointsBalance() {
+
     //Build dictionary that stores payer name and points balance
     function BalanceList(payer, pointsBalance) {
         this.payer = payer;
         this.pointsBalance = pointsBalance;
     }
-
     //add entries to payer-and-points balance list
     var balanceList = [];
     for (i = 0; i < payerList.length; i++) {
@@ -193,18 +170,5 @@ function pointsBalance() {
     }
 
     //return balanceList;
-document.getElementById("balances").innerHTML = JSON.stringify(balanceList);
+    document.getElementById("balances").innerHTML = JSON.stringify(balanceList);
 }
-
-function spendAndBalance(points) {
-    var spendingPoints = spendPoints(n);
-    console.log(spendingPoints);
-    var theBalance = pointsBalance();
-    return (theBalance);
-}
-
-//var addedTransaction = addTransaction(document.getElementsByName("payer")[0].value, document.getElementsByName("points")[0].value1000, document.getElementsByName("timestamp")[0].value);
-//console.log(addedTransaction);
-
-//var isSpending = spendAndBalance(document.getElementsByName("points-spend")[0].value);
-//console.log(isSpending);

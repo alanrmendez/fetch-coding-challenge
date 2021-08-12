@@ -1,5 +1,5 @@
-# fetch-coding-challenge
-Alan's code for the Fetch coding exercise.
+# Fetch Coding Challenge #
+## Alan's code for the Fetch coding exercise. ##
 
 Welcome to Alan's code for the Fetch coding exercise! The web service is constructed as a minimalistic, streamlined, and intuitive service that performs the requested tasks: 
 1. Adding transactions for a specific payer and date, 

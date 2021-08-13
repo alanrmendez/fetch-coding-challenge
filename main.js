@@ -33,14 +33,44 @@ function addTransaction() {
         points = parseInt(points);
         timestamp = new Date(timestamp + "Z");
 
+        //check for invalid payer values
+        console.log(payer);
+        console.log(!payer);
+        console.log(payer === "");
+        if (!payer || !/\S/.test(payer)) {
+            document.getElementById('transaction-confirmation').innerHTML = "Error: please input a valid payer name.";
+            document.getElementById('transaction-confirmation').style.color = "darkred";
+            return
+        }
+
+        //check for invalid point values
+        console.log(points);
+        console.log(!points);
+        if (!points || !/\S/.test(points)) {
+            document.getElementById('transaction-confirmation').innerHTML = "Error: please input a valid point value.";
+            document.getElementById('transaction-confirmation').style.color = "darkred";
+            return
+        }
+
+        //check for invalid time values
+        console.log(timestamp);
+        console.log(timestamp instanceof Date);
+        console.log(isNaN(timestamp));
+        if (!(timestamp instanceof Date) || isNaN(timestamp)) {
+            document.getElementById('transaction-confirmation').innerHTML = "Error: please input a valid date and time.";
+            document.getElementById('transaction-confirmation').style.color = "darkred";
+            return
+        }
+
         //add transaction entry to transaction list
         var transactionEntry = new Transaction(payer, points, timestamp);
         transactionList.push(transactionEntry);
         console.log(transactionList);
         document.getElementById("transaction-list").innerHTML = JSON.stringify(transactionList);
 
+        //transaction confirmation message
         document.getElementById("transaction-confirmation").innerHTML = "Transaction successfully added!";
-
+        document.getElementById('transaction-confirmation').style.color = "darkgreen";
         if (payerList.includes(payer) == false) {
             payerList.push(payer);
             console.log("New payer added to list: " + payer);
@@ -78,6 +108,14 @@ function spendPoints() {
     console.log(numPoints);
     var sumPointsTest = sumPoints();
     console.log(sumPointsTest);
+
+    //check for invalid point values
+    console.log(numPoints);
+    console.log(!numPoints);
+    if (!numPoints || !/\S/.test(numPoints)) {
+        document.getElementById("pointsErr").innerHTML = "Error: please input a valid point value.";
+        return
+    }
 
     if (numPoints < 0) {
         document.getElementById("pointsErr").innerHTML = 'Error: no spending negative points!';

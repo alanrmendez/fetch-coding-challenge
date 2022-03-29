@@ -11,9 +11,11 @@
  * 3. return all payer point balances
  */
 
+
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
+const { sumPoints, spendPoints } = require('./helpers');
 
 // Transactions array with dummy content
 const transactions = [{
@@ -46,8 +48,15 @@ app.post('/', (req, res, next) => {
 });
 
 
-// Spend points and return all payer point balances
-// 
+// Spend points
+app.get('/', (req, res, next) => {
+  const pointsToSpend = req.query.points;
+  const result = spendPoints(pointsToSpend, transactions);
+  res.send(result);
+});
+
+
+// Return point balance
 
 
 

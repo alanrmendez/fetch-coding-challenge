@@ -1,0 +1,22 @@
+{
+  "name": "fetch-coding-challenge",
+  "version": "1.0.0",
+  "description": "Welcome to Alan's code for the Fetch coding exercise! [The web service](https://alanrmendez.github.io/fetch-coding-challenge/) is constructed as a minimalistic, streamlined, and intuitive service that performs the requested tasks:  1. Adds transactions for a specific payer and date,  2. Spends points as permitted and returns a list for each call, and  3. Returns all payer point balances.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alanrmendez/fetch-coding-challenge.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alanrmendez/fetch-coding-challenge/issues"
+  },
+  "homepage": "https://github.com/alanrmendez/fetch-coding-challenge#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}

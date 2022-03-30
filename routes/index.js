@@ -1,8 +1,11 @@
 const express = require('express');
+var cors = require('cors');
 const app = express();
 const port = process.env.PORT || 3000;
 const { spendPoints, pointsBalance } = require('./helpers.js');
 const transactions = [];
+
+app.use(cors());
 
 // Add transactions for a specific payer and date
 app.post('/', (req, res, next) => {

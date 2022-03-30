@@ -1,5 +1,4 @@
 const express = require('express');
-const helpers = express();
 
 function sumPoints(transactions) {
   let sum = 0;

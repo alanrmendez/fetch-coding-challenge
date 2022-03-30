@@ -1,5 +1,3 @@
-const express = require('express');
-
 function sumPoints(transactions) {
   let sum = 0;
   for (let i = 0; i < transactions.length; i++) {

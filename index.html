@@ -35,25 +35,27 @@
                     <div class="mb-3">
                         <label for="payer" class="form-label">Payer</label>
                         <input type="text" class="form-control" id="payer" name="payer" autocomplete="off"
-                            placeholder="Enter a payer name (e.g. DANNON)" onclick="resetConfirmation()">
+                            placeholder="Enter a payer name (e.g. DANNON)">
                     </div>
                     <div class="mb-3">
                         <label for="points" class="form-label">Points</label>
                         <input type="number" class="form-control" id="points" name="points"
-                            placeholder="Enter a number" onclick="resetConfirmation()">
+                            placeholder="Enter a number">
                     </div>
                     <div class="mb-3">
                         <label for="timestamp" class="form-label">Timestamp</label>
                         <input type="datetime-local" class="form-control" id="timestamp" name="timestamp"
-                            placeholder="YYYY-MM-DDThh:mm:ssZ" onclick="resetConfirmation()">
+                            placeholder="YYYY-MM-DDThh:mm:ssZ">
                     </div>
                     <button type="submit" class="btn btn-primary" id="transaction-button">Add transaction</button>
                     <div id="transaction-confirmation" style="padding-top: 20px; color: darkgreen;"></div>
+                    <!--
                     <h5 style="padding-top: 20px;">Transaction List</h5>
                     <div class="overflow-scroll col-12"
                         style="border-style: solid; height: 150px; border-width: thin; border-radius: 5px;"
                         id="transaction-list">
                     </div>
+                  -->
                 </div>
             </div>
             <!-- transaction input section ends -->
@@ -64,11 +66,11 @@
                 <h3>Enter the number of points you would like to spend:</h3>
                 <div style="padding-top: 20px; padding-bottom: 30px;">
                     <div class="mb-3">
-                        <label for="points-spend" class="form-label">Points to spend:</label>
-                        <input type="number" class="form-control" id="points-spend"
-                            placeholder="Enter a positive number" onclick="resetError()">
+                        <label for="points-to-spend" class="form-label">Points to spend:</label>
+                        <input type="number" class="form-control" id="points-to-spend"
+                            placeholder="Enter a positive number">
                     </div>
-                    <button type="submit" class="btn btn-primary" onclick="spendPoints()">Spend points</button>
+                    <button type="submit" class="btn btn-primary" id="spend-points">Spend points</button>
                    <span style="color: darkred;" id="pointsErr"></span> 
 
                     <h5 style="padding-top: 20px;">Points spent per payer</h5>
@@ -82,7 +84,7 @@
 
                 <!-- view balances begins -->
                 <div style="padding-top: 50px; padding-bottom: 50px;">
-                    <button type="submit" class="btn btn-primary" onclick="pointsBalance()">View payer point balances</button>
+                    <button type="submit" class="btn btn-primary" id="view-balances">View payer point balances</button>
                     <div style="padding-top: 20px;">
                         <div class="overflow-scroll col-12"
                         style="border-style: solid; height: 150px; border-width: thin; border-radius: 5px;" id="balances">
@@ -95,6 +97,5 @@
     </div>
     <!-- supercontainer ends -->
     <script src="main.js"></script>
-    <script src="routes/index.js"></script>
 </body>
 </html>
